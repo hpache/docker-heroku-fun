@@ -1,6 +1,5 @@
 FROM ubuntu
 ENV DEBIAN_FRONTEND = noninteractive
-USER root # add this line before entry points
 
 # Installing apache2 and php module
 RUN apt-get update
