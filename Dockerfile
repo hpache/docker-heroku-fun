@@ -1,5 +1,6 @@
 FROM ubuntu
 ENV DEBIAN_FRONTEND = noninteractive
+USER root # add this line before entry points
 
 # Installing apache2 and php module
 RUN apt-get update
@@ -11,5 +12,9 @@ RUN apt-get install -y vim
 RUN apt-get clean
 
 COPY run-apache2.sh /usr/local/bin/
+
+WORKDIR /usr/local/bin/
+
+RUN chmod a+x run-apache2.sh
 
 CMD ["run-apache2.sh"]
