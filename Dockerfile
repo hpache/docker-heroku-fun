@@ -9,3 +9,7 @@ RUN apt-get install -y php
 RUN apt-get install -y libapache2-mod-php
 RUN apt-get install -y vim
 RUN apt-get clean
+
+COPY run-apache2.sh /usr/local/bin/
+
+CMD ["run-apache2.sh"]
