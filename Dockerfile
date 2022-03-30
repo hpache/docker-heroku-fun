@@ -20,4 +20,6 @@ WORKDIR /var/www/html
 
 COPY src .
 
+RUN chown www-data:www-data /var/www/html
+
 CMD ["run-apache2.sh"]
