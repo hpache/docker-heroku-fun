@@ -1,20 +1,11 @@
-FROM node:17
+FROM ubuntu
+ENV DEBIAN_FRONTEND = noninteractive
 
-# Create app directory
-WORKDIR /usr/src/app
-
-# Install app dependencies
-# A wildcard is used to ensure both package.json and package-lock.json are copied
-# where available
-COPY package*.json ./
-
-RUN npm install
-
-# Bundle app source code
-COPY . .
-# Expose port 3000
-EXPOSE 3000
-
-CMD ["node", "server.js"]
-
-
+# Installing apache2 and php module
+RUN apt-get update
+RUN apt-get install -y apache2
+RUN apt-get install -y apache2-utils
+RUN apt-get install -y php
+RUN apt-get install -y libapache2-mod-php
+RUN apt-get install -y vim
+RUN apt-get clean
